@@ -319,43 +319,39 @@ process_check()
 # Call the function to check for installation
 main()
 {
-    # while [[ $# -gt 0 ]]; do
-    #     key="$1"
-    #     case $key in
-    #         -os)
-    #         only_output_os_info=true
-    #         shift
-    #         ;;
-    #         -debug)
-    #         debug=true
-    #         shift
-    #         ;;
-    #         -h|--help)
-    #         help=true
-    #         shift
-    #         ;;
-    #         *)
-    #         usage
-    #         exit 1
-    #         ;;
-    #     esac
-    # done
+    while [[ $# -gt 0 ]]; do
+        key="$1"
+        case $key in
+            -os)
+            only_output_os_info=true
+            shift
+            ;;
+            -debug)
+            debug=true
+            shift
+            ;;
+            -h|--help)
+            help=true
+            shift
+            ;;
+            *)
+            usage
+            exit 1
+            ;;
+        esac
+    done
 
-    # if [[ $help ]]; then
-    #     usage
-    #     exit 0
-    # fi
+    if [[ $help ]]; then
+        usage
+        exit 0
+    fi
 
-    # if [[ $only_output_os_info ]]; then
-    #     get_server_info
-    # else
-    #     get_server_info
-    #     process_check    
-    # fi
-    only_output_os_info=true
-    debug=true
-    get_server_info
-    process_check    
+    if [[ $only_output_os_info ]]; then
+        get_server_info
+    else
+        get_server_info
+        process_check    
+    fi
 }
 
 
