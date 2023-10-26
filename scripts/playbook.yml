@@ -1,0 +1,14 @@
+---
+- name: echo hello
+  hosts: all
+  gather_facts: false
+
+  tasks:
+  - name: Ensure apache is at the latest version
+    ansible.builtin.shell: |
+      echo hello
+    tags:
+      - hello
+  
+  # - debug: var="result.stdout_lines"
+    
