@@ -73,6 +73,7 @@ message RunPlaybookRequest {
   string playbook = 2;
   Inventory inventory = 3;
   string tag = 4;
+  string content = 5;
 }
 
 message RunPlaybookResult {
